@@ -1,47 +1,44 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import { Route, NavLink, BrowserRouter as Router, Switch } from 'react-router-dom'
+import { Route, Link, NavLink, BrowserRouter as Router, Switch } from 'react-router-dom'
 import App from './App'
 import Customer from './Customer'
 import Product from './Product'
-import Notfound from './Notfound'
+import NotFound from './NotFound'
 
-const routing = (  
-  <Router> 
+const routing = (
+  <Router>
     <div>
       <ul>
-      <button type="button" >
-      <li>
-          <NavLink exact activeClassName="active" to="/">
-            Home
-          </NavLink>
-        </li>
+        <button type="button">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
         </button>
         <button type="button">
-        <li>
-          <NavLink exact activeClassName="active" to="/Customer">
-            Customer
-          </NavLink>
-        </li>
+          <li>
+            <Link to="/Customer">Customer</Link>
+          </li>
         </button>
         <button type="button">
-        <li>
-          <NavLink exact activeClassName="active" to="/Product">
-            Product
-          </NavLink>
-        </li>
+          <li>
+            <Link to="/Product">Product</Link>
+          </li>
         </button>
+
       </ul>
       <Switch>
         <Route exact path="/" component={App} />
         <Route path="/Customer" component={Customer} />
         <Route path="/Product" component={Product} />
-        <Route component={Notfound} />
-        </Switch>
+        <Route component={NotFound} />
+      </Switch>
     </div>
+
   </Router>
 )
+
 ReactDOM.render(routing, document.getElementById('root'))
 
 
